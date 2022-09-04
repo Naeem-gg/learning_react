@@ -1,10 +1,13 @@
 import React,{useState} from 'react'
 
 export default function TextForm(props) {
-    const [text, setText] = useState("Enter text herre");
+  const [text, setText] = useState("Enter text herre");
+  const toUper = ()=>{
+    setText(text.toUpperCase());
+  }
     const toLower = ()=>{
         // let newText = text.toLowerCase;
-        console.log(text.toLowerCase());
+        setText(text.toLowerCase());
     }
     const toChange = (event)=>{
         console.log("state changed")
@@ -17,10 +20,12 @@ export default function TextForm(props) {
     <h1>{props.heading}</h1>
     
     <textarea name="formtext" onChange={toChange} cols="130" rows="10" value={text}></textarea>
-    <div id="emailHelp" className="form-text">Convert your text to lower case with one click</div>
+    <div id="emailHelp" className="form-text">Convert your text to lower & upper case with one click</div>
   </div>
   
-  <button className="btn btn-primary"  onClick={toLower}>To Lower case</button>
+  <button className="btn btn-primary"  onClick={toUper}>To Upper case</button>
+  <button className="btn btn-primary mx-3"  onClick={toLower}>To Lower case</button>
+  
 
     </div>
   )
